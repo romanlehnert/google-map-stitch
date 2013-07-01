@@ -67,7 +67,8 @@ class GMS
 
     # build a url for a google image
     def imageURL(x, y, z, layer=@layer)
-      "http://mt1.google.com/vt/lyrs=#{layer}&hl=en&x=#{x}&s=&y=#{y}&z=#{z.to_s}"
+      #"http://mt1.google.com/vt/lyrs=#{layer}&hl=en&x=#{x}&s=&y=#{y}&z=#{z.to_s}"
+      "https://khms0.google.com/kh/v=130&src=app&x=#{x}&y=#{y}&z=#{z.to_s}&s=Gali"
     end
 
     def status
@@ -77,9 +78,10 @@ class GMS
       puts "Ending Coord: #{@startY},#{@endY}"
       puts "Zoom Level: #{@zoomLevel}"
       puts "Total Tiles to Download: #{tileCount.to_s.reverse.gsub(/...(?=.)/,'\&,').reverse}"
-      puts "Final Image Size @ 72DPI #{pixelWidth}x#{pixelHeight}"
-      puts "Final Print Size @ 300DPI (Inches): #{printWidth}\"x#{printHeight}\""
-      puts "Final Print Size @ 300DPI (Feet): #{(printWidth/12).round(2)}'x#{(printHeight/12).round(2)}'"
+      puts "Final Image Size #{pixelWidth}x#{pixelHeight} px"
+      puts "Final Print Size @ 300DPI (Meters): #{(printWidth * 2.54).round(2)}cm x #{(printHeight * 2.54).round(2)}cm"
+      puts "Final Print Size @ 300DPI (Inches): #{printWidth}\" x #{printHeight}\""
+      puts "Final Print Size @ 300DPI (Feet): #{(printWidth/12).round(2)}' x #{(printHeight/12).round(2)}'"
       puts "=======================================================\n\n"
     end
 
